@@ -11,12 +11,32 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+      - uses: actions/checkout@v3
+
+      - uses: swift-actions/setup-swift@v2
+      - name: Get swift version
+        run: swift --version
+
+      - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+#        with:
+#          swift-version: "5.10"
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
+
+    #steps:
+
+      #- uses: actions/checkout@v3
+
+#      - name: test
+#        uses: sersoft-gmbh/xcodebuild-action@v3
+#        with:
+#          project: Splash.xcodeproj
+#          scheme: Splash
+#          destination: platform=iOS
+#          action: test
+
