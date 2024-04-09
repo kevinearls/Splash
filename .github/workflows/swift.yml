@@ -21,6 +21,6 @@ jobs:
         with:
           project: Splash.xcodeproj
           scheme: Splash
-          destination: platform=macOS
+          destination: platform=iOS
           action: test
 
