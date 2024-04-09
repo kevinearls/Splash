@@ -18,9 +18,9 @@ jobs:
 
       - name: test
         uses: sersoft-gmbh/xcodebuild-action@v3
-          with:
-            project: Splash.xcodeproj
-            scheme: Splash
-            destination: platform=macOS
-            action: test
+        with:
+          project: Splash.xcodeproj
+          scheme: Splash
+          destination: platform=macOS
+          action: test
 
