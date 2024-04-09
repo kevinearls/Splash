@@ -13,14 +13,25 @@ jobs:
   build:
     runs-on: macos-latest
 
-    steps:
-      - uses: actions/checkout@v3
+  steps:
+    - uses: actions/checkout@v4
+    - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+      with:
+        swift-version: "5.3.3"
+    - name: Build
+      run: swift build
+    - name: Run tests
+      run: swift test
 
-      - name: test
-        uses: sersoft-gmbh/xcodebuild-action@v3
-        with:
-          project: Splash.xcodeproj
-          scheme: Splash
-          destination: platform=iOS
-          action: test
+    #steps:
+
+      #- uses: actions/checkout@v3
+
+#      - name: test
+#        uses: sersoft-gmbh/xcodebuild-action@v3
+#        with:
+#          project: Splash.xcodeproj
+#          scheme: Splash
+#          destination: platform=iOS
+#          action: test
 
